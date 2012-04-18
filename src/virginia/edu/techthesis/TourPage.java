@@ -43,7 +43,7 @@ public class TourPage extends Activity {
         	siteButton.setText(siteObject.getName());
             siteButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
-                    Intent siteIntent = new Intent(view.getContext(), SitePage.class);
+                    Intent siteIntent = new Intent(view.getContext(), SitePageActivity.class);
                     siteIntent.putExtra("site", siteObject);
                     startActivity(siteIntent);
                 }

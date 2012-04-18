@@ -18,10 +18,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SiteList"></activity>
-        <activity android:name=".TourList"></activity>
-        <activity android:name=".SitePage"></activity>
+        <activity android:name=".SiteListActivity"></activity>
+        <activity android:name=".TourListActivity"></activity>
+        <activity android:name=".SitePageActivity"></activity>
         <activity android:name=".TourPage"></activity>
+        <activity android:name=".MapViewActivity"></activity>
     </application>
 
 </manifest>

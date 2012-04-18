@@ -21,7 +21,7 @@ public class SiteManager{
 	
 	//initialize array list
     private ArrayList<Site> siteList = new ArrayList<Site>();
-    private ArrayList<Site> libraryList = new ArrayList<Site>();
+    //private ArrayList<Site> libraryList = new ArrayList<Site>();
     
     //create sites here
     Site clemons = new Site("Clemons", "It's a library that opens 24/7. It smells.", "Library", "clemons");
@@ -37,13 +37,25 @@ public class SiteManager{
     	
     	//map sites
     	for(int i = 0; i < siteList.size(); i++){
-    		//create an if-loop for each category
-    		if(siteList.get(i).getCategory().equals("Library")){
-    			libraryList.add(siteList.get(i));
+    		//check to see if a mapping exists for the category of the current object...
+    		String category = siteList.get(i).getCategory();
+    		if(siteHash.containsKey(category)){
+    			//get that category arraylist and add the site object
+    			siteHash.get(category).add(siteList.get(i));
     		}
+    		
+    		//if it doesn't exist create a new category array list and add it to the map
+    		else{
+    			ArrayList<Site> catSiteList = new ArrayList<Site>();
+    			catSiteList.add(siteList.get(i));
+    			siteHash.put(category, catSiteList);
+    		}
+    		/*if(siteList.get(i).getCategory().equals("Library")){
+    			libraryList.add(siteList.get(i));
+    		}*/
     	}
     	
-    	siteHash.put("Library", libraryList);
+    	//siteHash.put("Library", libraryList);
     	
     }
 

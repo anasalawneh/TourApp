@@ -4,19 +4,63 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Site implements Parcelable { 
-
+	
+	
+	public double latitude;
+	public double longitude;
+	public String vicinity;
+	public String[] type;
+	public double rating;
+	public String icon;
+	
     private String name; 
     private String description;
     private String category;
     private String imageFile;
-    
-    public Site(String name, String description, String category, String imageFile) { 
+    private String reference;
+    private String id;
+
+	public Site(String name, String description, String category, String imageFile) { 
         this.name = name; 
         this.description = description;
         this.category = category;
         this.imageFile = imageFile;
     } 
-
+    
+	public Site(String name, String description, String category) { 
+        this.name = name; 
+        this.description = description;
+        this.category = category;
+    } 
+	
+    public Site(String name){
+    	this.name = name;
+    }
+	
+    public Site(double latitude, double longitude, String vicinity,double rating, String name, String reference,
+			String id) {
+		super();
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.vicinity = vicinity;
+		this.rating = rating;
+		this.name = name;
+		this.reference = reference;
+		this.id = id;
+	}
+    public Site(double latitude, double longitude, String vicinity,double rating, String name, String reference,
+			String id, String icn) {
+		super();
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.vicinity = vicinity;
+		this.rating = rating;
+		this.name = name;
+		this.reference = reference;
+		this.id = id;
+		this.icon = icn;
+	}
+    
 	//getters and setters
 	public String getName() {
 		return name;
@@ -37,6 +81,21 @@ public class Site implements Parcelable {
 		this.category = category;
 	}
 	
+    public String getReference() {
+		return reference;
+	}
+
+	public void setReference(String reference) {
+		this.reference = reference;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 	
     
     public String getImageFile() {
@@ -53,10 +112,16 @@ public class Site implements Parcelable {
         new Parcelable.Creator<Site>() { 
         public Site createFromParcel(Parcel in) { 
             String nameParam = in.readString(); 
-            String descriptionParam = in.readString();
-            String categoryParam = in.readString();
-            String imageFileParam = in.readString();
-            return new Site(nameParam, descriptionParam, categoryParam, imageFileParam); 
+            String referenceParam = in.readString();
+            String idParam = in.readString();
+            double latitudeParam = in.readDouble();
+            double longitudeParam = in.readDouble();
+            double ratingParam = in.readDouble();
+            String vicinityParam = in.readString();
+            String iconParam = in.readString();
+            //String imageFileParam = in.readString();
+            //return new Site(nameParam, descriptionParam, categoryParam, imageFileParam);
+            return new Site(latitudeParam, longitudeParam, vicinityParam, ratingParam, nameParam, referenceParam, idParam, iconParam); 
         } 
 
         public Site[] newArray(int size) { 
@@ -74,8 +139,12 @@ public class Site implements Parcelable {
 	public void writeToParcel(Parcel p, int flags) {
 		// TODO Auto-generated method stub
         p.writeString(name); 
-        p.writeString(description); 
-        p.writeString(category); 
-        p.writeString(imageFile);
+        p.writeString(reference);
+        p.writeString(id);
+        p.writeDouble(latitude);
+        p.writeDouble(longitude);
+        p.writeDouble(rating);
+        p.writeString(vicinity);
+        p.writeString(icon);
 	}
 } 
