@@ -25,7 +25,7 @@ public class TourAppDemoActivity extends Activity {
         
         tourButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent tourListIntent = new Intent(view.getContext(), TourListActivity.class);
+                Intent tourListIntent = new Intent(TourAppDemoActivity.this, TourListActivity.class);
                 startActivity(tourListIntent);
             }
         });
@@ -33,7 +33,7 @@ public class TourAppDemoActivity extends Activity {
 
         siteButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent siteListIntent = new Intent(view.getContext(), SiteListActivity.class);
+                Intent siteListIntent = new Intent(TourAppDemoActivity.this, SiteListActivity.class);
                 startActivity(siteListIntent);
             }
         });
