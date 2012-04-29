@@ -183,7 +183,7 @@ public class MapViewActivity extends MapActivity {
 		
 		//If the user wants directions give them to him or her..
 		// TODO Get the user's current location and desired location if they press the search button...
-		//new GetDirections().execute(location.getLatitude()+","+location.getLongitude(),"Washington,D.C.");
+		new GetDirections().execute(location.getLatitude()+","+location.getLongitude(),"Washington,D.C.");
 	}
 
 	@Override

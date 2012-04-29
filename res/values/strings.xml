@@ -3,5 +3,6 @@
 
     <string name="hello">Hello World, TourAppDemoActivity!</string>
     <string name="app_name">TourAppDemo</string>
+    <string name="placesKey">AIzaSyAk4Ur6RglVpcgJsaz7yE0AADUz9rElO38</string>
 
 </resources>

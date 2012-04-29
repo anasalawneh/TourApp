@@ -12,8 +12,9 @@ public class Site implements Parcelable {
 	public String[] type;
 	public double rating;
 	public String icon;
-	
-    private String name; 
+	public String url;
+
+	private String name; 
     private String description;
     private String category;
     private String imageFile;
@@ -105,7 +106,14 @@ public class Site implements Parcelable {
 	public void setImageFile(String imageFile) {
 		this.imageFile = imageFile;
 	}
+	
+    public String getUrl() {
+		return url;
+	}
 
+	public void setUrl(String url) {
+		this.url = url;
+	}
 
 
 	public static final Parcelable.Creator<Site> CREATOR = 

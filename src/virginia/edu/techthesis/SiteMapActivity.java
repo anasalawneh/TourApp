@@ -56,11 +56,12 @@ public class SiteMapActivity extends MapActivity{
 		if (location != null) {
 			int latitude = (int) location.getLatitude();
 			int longitude = (int) location.getLongitude();
-		
+			Drawable android_marker = getResources().getDrawable(R.drawable.androidmarker);
+			CustomPinpointList clp = new CustomPinpointList(android_marker, SiteMapActivity.this );			
 			GeoPoint point = new GeoPoint(latitude, longitude);
 			OverlayItem item = new OverlayItem(point, "Me","I'm here...");
-			pinpointList.insertPinpointOverlayItem(item);
-			mapOverlayList.add(pinpointList);
+			clp.insertPinpointOverlayItem(item);
+			mapOverlayList.add(clp);
 			
 		}
 		
