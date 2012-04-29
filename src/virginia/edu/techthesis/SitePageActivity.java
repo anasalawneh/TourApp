@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 public class SitePageActivity extends Activity {
 	ImageView image;
-	TextView description;
+	TextView title,description;
 	Site siteObject;	
 	
     /** Called when the activity is first created. */
@@ -27,9 +27,9 @@ public class SitePageActivity extends Activity {
         Site siteObject = (Site) intent.getParcelableExtra("site");
 
         //get the gui from the layout files...
-    	TextView title = (TextView)findViewById(R.id.title);
-    	ImageView image = (ImageView)findViewById(R.id.image);
-    	TextView description = (TextView)findViewById(R.id.description);
+    	title = (TextView)findViewById(R.id.title);
+    	image = (ImageView)findViewById(R.id.image);
+    	description = (TextView)findViewById(R.id.description);
         
     	//set the page...
     	title.setText(siteObject.getName());
@@ -58,7 +58,7 @@ public class SitePageActivity extends Activity {
 		}
 		
 		protected void onPostExecute(Drawable d){
-			image.setImageDrawable(d);
+//			image.setImageDrawable(d);
 		}
     	
     }
